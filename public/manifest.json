@@ -1,0 +1,15 @@
+{
+  "name": "tkrd-stack",
+  "short_name": "tkrd-stack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "財田大地のポートフォリオと実験的Webアプリ集",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}
