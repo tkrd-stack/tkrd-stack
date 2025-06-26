@@ -12,7 +12,7 @@ import remarkGfm from "remark-gfm";
  *
  * You can use it like this:
  *
- */ 
+ */
 export function MdxContent({ content }: { content: string }) {
   return (
     <ReactMarkdown
