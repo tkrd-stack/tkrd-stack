@@ -45,8 +45,8 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
   }, [filteredNotes]);
 
   return (
-    <main className="max-w-3xl mx-auto p-6 space-y-6">
-      <h1 className="text-3xl font-bold">技術ノート</h1>
+    <div className="w-full space-y-6">
+      <h1 className="text-3xl font-bold">検索</h1>
 
       <Input
         placeholder="キーワードで検索..."
@@ -62,30 +62,30 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
         ))}
       </div>
 
-      <div ref={containerRef} className="space-y-4">
+      <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredNotes.map((note) => (
-          <Card key={note.slug} className="bg-slate-50 border border-slate-200 hover:shadow-lg transition-all">
-            <CardHeader>
-              <CardTitle>
+          <Card key={note.slug} className="bg-slate-50 border border-slate-200 hover:shadow-lg transition-all p-4">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-xl">
                 <Link href={`/notes/${note.slug}`} className="hover:underline text-slate-800">
                   {note.title}
                 </Link>
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2">
-              <p className="text-slate-600 text-sm">{note.description}</p>
+            <CardContent className="space-y-4 pt-0">
+              <p className="text-slate-600 text-base leading-relaxed">{note.description}</p>
               <div className="flex flex-wrap gap-2">
                 {(note.tags || []).map((tag) => (
-                  <Badge key={tag} variant="secondary">
+                  <Badge key={tag} variant="secondary" className="text-sm">
                     {tag}
                   </Badge>
                 ))}
               </div>
-              <div className="text-xs text-slate-500">{note.date}</div>
+              <div className="text-sm text-slate-500 mt-3">{note.date}</div>
             </CardContent>
           </Card>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

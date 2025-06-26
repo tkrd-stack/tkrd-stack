@@ -1,0 +1,520 @@
+---
+title: "nodejs"
+description: "nodejs"
+slug: "nodejs"
+date: "2025-06-26"
+---
+
+
+# Node.js
+
+## 1. サーバー構築
+
+### 必須パッケージ
+
+- **express**: シンプルなサーバー構築フレームワーク
+
+  ```bash
+  npm install express
+
+  ```
+
+- **dotenv**: 環境変数の管理
+
+  ```bash
+  npm install dotenv
+
+  ```
+
+- **nodemon**: サーバー自動再起動ツール（開発環境）
+
+  ```bash
+  npm install --save-dev nodemon
+
+  ```
+
+### サーバー構築の基本コード例
+
+```jsx
+const express = require('express');
+const app = express();
+require('dotenv').config();
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log('Server is running...');
+});
+```
+
+---
+
+## 2. データベース
+
+### 必須パッケージ
+
+- **mongoose**: MongoDB 用の ORM
+
+  ```bash
+  npm install mongoose
+
+  ```
+
+- **sequelize**: SQL データベース用 ORM（PostgreSQL, MySQL, etc.）
+
+  ```bash
+  npm install sequelize sequelize-cli
+
+  ```
+
+### MongoDB 接続の基本コード例
+
+```jsx
+const mongoose = require('mongoose');
+
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('MongoDB connection error:', err));
+```
+
+---
+
+## 3. API 通信
+
+### 必須パッケージ
+
+- **axios**: HTTP リクエストライブラリ
+
+  ```bash
+  npm install axios
+
+  ```
+
+- **node-fetch**: Fetch API の Node.js 版
+
+  ```bash
+  npm install node-fetch
+
+  ```
+
+### Axios 使用例
+
+```jsx
+const axios = require('axios');
+
+axios
+  .get('https://api.example.com/data')
+  .then((response) => console.log(response.data))
+  .catch((error) => console.error(error));
+```
+
+---
+
+## 4. テスト
+
+### 必須パッケージ
+
+- **jest**: JavaScript テストフレームワーク
+
+  ```bash
+  npm install --save-dev jest
+
+  ```
+
+- **supertest**: API のテストツール
+
+  ```bash
+  npm install --save-dev supertest
+
+  ```
+
+### Jest 基本コード例
+
+```jsx
+// sum.js
+function sum(a, b) {
+  return a + b;
+}
+module.exports = sum;
+
+// sum.test.js
+const sum = require('./sum');
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+
+---
+
+## 5. セキュリティ
+
+### 必須パッケージ
+
+- **helmet**: HTTP ヘッダーを保護
+
+  ```bash
+  npm install helmet
+
+  ```
+
+- **cors**: クロスオリジンリソース共有の設定
+
+  ```bash
+  npm install cors
+
+  ```
+
+- **bcrypt**: パスワードのハッシュ化
+
+  ```bash
+  npm install bcrypt
+
+  ```
+
+- **jsonwebtoken**: JWT による認証
+
+  ```bash
+  npm install jsonwebtoken
+
+  ```
+
+### 基本的なセキュリティコード例
+
+```jsx
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+
+const app = express();
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
+
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
+// パスワードのハッシュ化
+const password = 'myPassword123';
+const hashedPassword = bcrypt.hashSync(password, 10);
+console.log('Hashed Password:', hashedPassword);
+
+// JWT生成
+const token = jwt.sign({ userId: 1 }, 'yourSecretKey', { expiresIn: '1h' });
+console.log('Generated Token:', token);
+```
+
+---
+
+## 6. ユーティリティ
+
+### 必須パッケージ
+
+- **lodash**: ユーティリティ関数のライブラリ
+
+  ```bash
+  npm install lodash
+
+  ```
+
+- **moment**: 日付操作（現在は`date-fns`推奨）
+
+  ```bash
+  npm install moment
+
+  ```
+
+### Lodash 使用例
+
+```jsx
+const _ = require('lodash');
+
+const arr = [1, 2, 3, 4, 5];
+console.log(_.shuffle(arr));
+```
+
+---
+
+## 7. 開発ツール
+
+### 必須パッケージ
+
+- **eslint**: コード品質チェックツール
+
+  ```bash
+  npm install --save-dev eslint
+
+  ```
+
+- **prettier**: コードフォーマッター
+
+  ```bash
+  npm install --save-dev prettier
+
+  ```
+
+### ESlint 初期化コマンド
+
+```bash
+npx eslint --init
+
+```
+
+---
+
+## 8. その他
+
+### npm スクリプト例
+
+- **`package.json`内のスクリプト設定**
+
+```json
+"scripts": {
+  "start": "node index.js",
+  "dev": "nodemon index.js",
+  "test": "jest"
+}
+
+```
+
+---
+
+## 推奨する参考資料
+
+- [npms.io](https://npms.io/): npm パッケージ検索
+- [Awesome Node.js](https://github.com/sindresorhus/awesome-nodejs): 高品質 Node.js リソース集
+
+---
+
+このチートシートをプロジェクトの種類に応じてカスタマイズし、自分専用のノートに取り込むとさらに便利になります。
+
+# Node.js とは
+
+ブラウザではない領域で JavaScript を実行できる環境のこと。
+
+Javascript で OS の機能にアクセスするプログラムを組むことができる。
+
+大量の接続できるネットワークアプリケーションの構築を目的に設計された Javascript 環境。
+
+## npm(node package manager)
+
+Node.js で利用するパッケージを管理するツール。
+
+パッケージとは Vue や React,webpack,iQuery などのライブラリやフレームワークのこと。
+
+## Node.js を使う目的
+
+1. 新しい仕様の JavaScript または TypeScript でクライアントサイドのプログラムを書きたい。
+2. web アプリケーションを作りたい。
+3. モバイル、デスクトップ用のアプリケーションを作りたい。
+
+# Node.js
+
+サーバーサイドの JavaScript 実行環境。C++で実装。
+
+## メリット
+
+- js を知っていれば簡単に使い始めれる。
+- 大量アクセスを捌ける。（ノンブロッキング I/O）
+
+## 利用できるパッケージ
+
+- Node.js 本体の機能に標準装備されているもの
+- 外部のモジュール
+
+# npm
+
+コマンドラインツール。
+
+## package.json
+
+```bash
+npm install name
+```
+
+dependencies と devDependencies をインストール。
+
+### dependencies
+
+本番環境で実行される場合に必要なパッケージや依存関係を保管する。
+
+例：react, react-dom など
+
+```bash
+npm install -save name
+```
+
+dependencies のみをインストール。
+
+### devDependencies
+
+開発に必要なパッケージのみを書く。本番環境にデプロイする際には不要なパッケージや依存関係を保存する。
+
+例：eslint, prettier など
+
+```bash
+npm install -save-dev name
+```
+
+devDependencies のみをインストール
+
+## 役割
+
+## 1.Node.js のプロジェクトを新規作成する
+
+```bash
+npm init
+```
+
+package.json が作成される。
+
+package.json には依存する外部のパッケージとそのバージョンを記述しておき、アプリケーションが実行段階になったときに外部ライブラリをまとめてインストールする。
+
+## 2.Node.js のプロジェクトに外部のパッケージを追加する
+
+```bash
+npm install express@latast (verを指定することもできる。)
+```
+
+導入したいライブラリを指定する。
+
+## 3.npm のサブコマンドとしてさまざまさ操作をワンライナーで実行する
+
+package.json の中で「scripts」の中に以下のような記述をすると、エイリアスで実行できる。
+
+```json
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+```
+
+## option
+
+-s, -save：package.json の dependencies に登録してくれる。
+
+# web サーバーを作成する時の要点
+
+1. http を読み込む
+2. サーバーのインスタンスを作成
+3. 特定のポートでサーバーを起動してリクエストを待つ
+
+# EventEmitter
+
+何かのイベントが発生した時に、それがトリガーとなって、あらかじめ登録しておいた処理を実行することができる。実行順序はキュー形式 FIFO 形式で取り出される。
+
+## 作成方法
+
+```jsx
+const EventEmitter = require('events');
+const myEmitter = new EventEmitter(); //EventEmitterインスタンスの作成
+```
+
+## 基本的な使い方
+
+- 登録処理：on(eventName, listener)
+  第 1 引数に指定したイベントに紐づけてリスナーを登録。
+- 実行処理：emit(eventName, [args])
+  emit 関数でイベントが発動し、第 2 引数以降の args を引数として渡す。
+
+```jsx
+import { EventEmitter } from 'events';
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('myEvent', () => {
+  console.log('Emitted Event');
+});
+
+eventEmitter.emit('myEvent');
+```
+
+## 同期 or 非同期
+
+EventEmitter で登録、発火したイベントは同期的に実行される。
+
+## 実行順
+
+登録した順に実行される。
+
+# Stream 処理
+
+EventEmitter にデータを溜め込む内部のバッファを組み込んだもののイメージ。内部のデータがある程度溜まった段階でイベントが発火する。
+
+Stream オブジェクト同士を繋ぎ合わせることもできるので、まとまったデータを別の形式に変換する Stream をかますことで全てのデータが溜まり切る前に変換可能のものから処理を始めるといった動作が可能になる。
+
+イベントの繋ぎ合わせ、データ流量の調整、変換処理などのレンドクするデータの流れを効率的に扱うことが可能。
+
+node.js では 4 つの Stream 処理がベースになっている。
+
+- Witable：データの書き込みに利用する
+- Readable：データの読み取りに利用する
+- Duplex：データの書き読みに利用する
+- Transfrom：Duplex を継承し、読み書きしたデータを変換する。
+
+I/O などの処理をなるべく細切れにして（微分）してパフォーマンス効率を上げる。
+
+## デメリット
+
+async/await などフロー制御に組み込むことが難しい。
+
+エラーハンドリングを忘れやすく、忘れた時の影響が大きい。
+
+# AsyncIterator
+
+Stream のデメリットを解消するために登場。
+
+```jsx
+for await (val of iterable ) {...}
+
+```
+
+---
+
+# ejs
+
+## 基本
+
+ejs:<%= 変数 %>
+
+## パーシャル
+
+テンプレートの一部を部品化するもの。
+
+- server は ejs.render で filename をキーとして値にパーシャルした ejs を設定する。
+
+  ```jsx
+  let data = {
+    taro: '090-1234-5678',
+    jiro: '080-1234-5678',
+    saburo: '070-1234-5678',
+  };
+  let content = ejs.render(index_page, {
+    title: 'Hello World',
+    msg: msg,
+    data: data,
+    filename: 'data_item',
+  });
+  ```
+
+- パーシャル化する ejs の作成。
+
+  ```jsx
+  <tr>
+    <th><%= id %></th>
+    <td><%= key %></td>
+    <td><%= value[0] %></td>
+  </tr>
+  ```
+
+- 受け取り側は<%- include (ファイル名, {受け渡す値})) %>で受ける準備をしておく。
+
+  ```html
+  <% let id = 0; %> <% for (let key in data) { %> <%-
+  include("data_item",{id:++id, key: key, value: [data[key]]}) %> <% } %>
+  ```

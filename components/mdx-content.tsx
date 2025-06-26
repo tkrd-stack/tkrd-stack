@@ -1,3 +1,4 @@
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -12,14 +13,27 @@ export function MdxContent({ content }: { content: string }) {
         p: (props) => <p className="leading-7 mb-4 text-base" {...props} />,
         code: (props) => {
           const { node, inline, className, children, ref, ...restProps } = props as any;
-          return inline ? (
-             <code className="bg-muted px-1 py-0.5 rounded text-sm" {...props}>
-              {children}
-            </code>
-          ) : (
-            <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm" {...restProps}>
-              <code>{children}</code>
-            </pre>
+          
+          if (inline) {
+            return (
+              <code className="bg-muted px-1 py-0.5 rounded text-sm font-mono" {...restProps}>
+                {children}
+              </code>
+            );
+          }
+          
+          // ブロックコードの場合、言語を取得
+          const match = /language-(\w+)/.exec(className || '');
+          const language = match ? match[1] : '';
+          
+          return (
+            <div className="my-4">
+              <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm" {...restProps}>
+                <code className={`font-mono ${className || ''}`}>
+                  {children}
+                </code>
+              </pre>
+            </div>
           );
         },
         blockquote: (props) => (

@@ -25,7 +25,7 @@ export default async function HomePage() {
               <CardTitle>SkillFlow</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm">学習履歴に基づいて次の教材を提案するアプリ</p>
+              <p className="text-sm">学習履歴に基づいて次の教材を提案するアプリ(制作中)</p>
             </CardContent>
           </Card>
           <Card className="w-full sm:w-[calc(50%-0.5rem)]">
@@ -33,7 +33,7 @@ export default async function HomePage() {
               <CardTitle>Refeel</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm">感情を可視化して内面を振り返るアプリ</p>
+              <p className="text-sm">感情を可視化して内面を振り返るアプリ(制作中)</p>
             </CardContent>
           </Card>
         </div>

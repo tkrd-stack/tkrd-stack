@@ -1,0 +1,159 @@
+---
+title: "Jest テスティング"
+description: "Jestを使ったJavaScriptテスト"
+slug: "jest"
+date: "2025-06-26"
+---
+
+# Jest
+
+## 概要
+
+- JavaScript のテストフレームワーク。
+- TypeScript で書くことも可。
+- js、ts で書かれたものであれば全てテスト可能。
+
+## 環境構築
+
+- 必要なパッケージ群
+  - jest
+  - ts-jest
+  - @types/jest
+
+### jest
+
+- 本体
+
+### ts-jest
+
+- jest を TypeScript に対応させるもの。
+
+### @types/jest
+
+- jest の型定義ファイル。
+
+## 設定ファイルの作成
+
+- jest で TypeScript コードがテスト可能にする設定。
+
+```terminal
+npx ts-jest config:init
+```
+
+## テスト方法
+
+### 　テストの対象
+
+#### 関数
+
+- 関数を export する。
+
+```typescript
+export function isZero(value: number): boolean {
+  return value === 0;
+}
+```
+
+- test.ts ファイルを作成。
+- 対象をインポートする。
+- テストする。
+  - expect を使う。
+  - matcher を使う。
+- 期待している値になっているかを記述。
+
+```typescript
+import { isZero } from './isZero';
+
+test('value is zero', () => {
+  const result = isZero(0);
+  expect(result).toBe(true);
+});
+```
+
+### React コンポーネント
+
+testing-library
+
+- UI コンポーネントをテストするためのライブラリ群。
+- コンポーネントに対する操作などができる。
+
+Jest
+
+- スナップショットテストを行える。
+-
+
+### テストを実行する
+
+- jest を実行する。
+
+```terminal
+npm test
+```
+
+### テスト結果
+
+#### 成功
+
+```terminal:
+Debugger attached.
+
+> test
+> jest
+
+ PASS  ./isZero.test.ts
+ PASS  ./check.test.ts
+  ● Console
+
+    console.log
+      OK
+
+      at Object.<anonymous> (check.test.ts:2:11)
+
+Test Suites: 2 passed, 2 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        3.892 s, estimated 4 s
+Ran all test suites.
+
+```
+
+#### 失敗
+
+```terminal
+Debugger attached.
+
+> test
+> jest
+
+ PASS  ./check.test.ts
+  ● Console
+
+    console.log
+      OK
+
+      at Object.<anonymous> (check.test.ts:2:11)
+
+ FAIL  ./isZero.test.ts
+  ● value is not zero
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      13 | test('value is not zero', () => {
+      14 |   const result = isZero(1);
+    > 15 |   expect(result).toBe(true);
+         |                  ^
+      16 | });
+      17 |
+
+      at Object.<anonymous> (isZero.test.ts:15:18)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 3 passed, 4 total
+Snapshots:   0 total
+Time:        4.232 s
+Ran all test suites.
+
+```
