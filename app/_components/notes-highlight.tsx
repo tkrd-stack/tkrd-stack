@@ -20,13 +20,15 @@ export default function NotesHighlight({ notes }: { notes: NoteMeta[] }) {
   }, []);
 
   return (
-    <section>
-      <h2 className="text-2xl font-semibold mb-4">最近のノート</h2>
+    <section className="mb-8">
+      <h2 className="text-2xl font-semibold mb-6 text-slate-800">
+        最近のノート
+      </h2>
       <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {notes.map((note) => (
           <Card
             key={note.slug}
-            className="bg-slate-50 hover:shadow-md transition-all"
+            className="bg-white hover:shadow-lg transition-all duration-300 border-slate-200 hover:border-indigo-200"
           >
             <CardHeader>
               <CardTitle>
@@ -39,7 +41,7 @@ export default function NotesHighlight({ notes }: { notes: NoteMeta[] }) {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 {note.description}
               </p>
             </CardContent>
