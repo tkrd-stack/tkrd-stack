@@ -209,7 +209,7 @@ export default function HeroSection() {
         <svg
           ref={wave1Ref}
           className="absolute left-0 w-[200%] h-full opacity-50"
-          viewBox="0 0 1440 320"
+          viewBox="0 0 1400 320"
           fill="#60a5fa"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -222,7 +222,7 @@ export default function HeroSection() {
         <svg
           ref={wave2Ref}
           className="absolute left-[100%] w-[200%] h-full opacity-50"
-          viewBox="0 0 1440 320"
+          viewBox="0 0 1400 320"
           fill="#06b6d4"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -254,7 +254,7 @@ export default function HeroSection() {
       </div>
 
       {/* コンテンツ - 最前面 */}
-      <div className="relative z-20 flex flex-col items-center space-y-8">
+      <div className="relative z-20 flex flex-col items-center ">
         <h1
           ref={titleRef}
           className="text-5xl md:text-6xl font-bold text-slate-100"

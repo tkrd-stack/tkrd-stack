@@ -11,9 +11,6 @@ export default function Header() {
           <Link href="/notes" className="hover:underline">
             ノート
           </Link>
-          <Link href="/unity" className="hover:underline">
-            Unity
-          </Link>
           <Link href="/about" className="hover:underline">
             プロフィール
           </Link>

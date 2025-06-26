@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function NotesLayout({
   children,
@@ -11,6 +12,8 @@ export default function NotesLayout({
   const pathname = usePathname();
   return (
     <main className="max-w-6xl mx-auto px-4 py-8">
+      <Analytics />
+      {/* ヘッダー */}
       <header className="mb-6 border-b pb-4">
         <h1 className="text-3xl font-bold">学習ノート</h1>
         <p className="text-sm text-muted-foreground">
