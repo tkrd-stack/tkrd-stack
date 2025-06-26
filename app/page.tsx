@@ -12,7 +12,13 @@ export default async function HomePage() {
     <main className="space-y-16 px-4 py-12 max-w-4xl mx-auto">
       {/* Hero セクション */}
       <Hero/>
-      
+      <section className="text-center max-w-2xl mx-auto">
+  <h2 className="text-xl font-semibold mb-2">Web制作・開発のご依頼も承ります</h2>
+  <p className="text-muted-foreground text-sm mb-4">
+    和歌山を拠点に、Webアプリケーションやサイト制作のご相談も受け付けています。
+    デザイン・UI/UX設計・React/Next.jsによる開発など、お気軽にお問い合わせください。
+  </p>
+</section>
       {/* 技術ノートハイライト（仮） */}
       <NotesHighlight notes={latestNotes} />
 

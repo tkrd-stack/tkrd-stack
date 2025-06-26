@@ -11,6 +11,7 @@ export default function AboutPage() {
           <p className="text-muted-foreground">
             Webエンジニア／教育者。上流から下流、子どもから大人までをつなぐ技術者。
           </p>
+  和歌山を拠点に、Web技術・教育・創作をテーマに活動中のポートフォリオ兼実験場です。
         </CardHeader>
         <Separator />
         <CardContent className="mt-4 space-y-6">

@@ -22,7 +22,7 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
       const matchesTag = selectedTag ? note.tags?.includes(selectedTag) : true;
       return matchesSearch && matchesTag;
     });
-  }, [search, selectedTag]);
+  }, [search, selectedTag, notes]);
 
   const allTags = Array.from(new Set(notes.flatMap((n) => n.tags || [])));
 
@@ -57,8 +57,13 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
 
       <div className="flex flex-wrap gap-2">
         {allTags.map((tag) => (
-            <Button variant={selectedTag === tag ? "default" : "outline"}>#{tag}</Button>
-
+          <Button 
+            key={tag}
+            variant={selectedTag === tag ? "default" : "outline"}
+            onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+          >
+            #{tag}
+          </Button>
         ))}
       </div>
 

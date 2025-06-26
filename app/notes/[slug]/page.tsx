@@ -12,8 +12,9 @@ export async function generateStaticParams() {
 
 
 
-export default async function NotePage({ params }: { params: { slug: string } }) {
-  const filePath = path.join(process.cwd(), "content/notes", `${params.slug}.mdx`);
+export default async function NotePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), "content/notes", `${slug}.mdx`);
   try {
     const file = await fs.readFile(filePath, "utf8");
     const { content } = matter(file);
@@ -25,7 +26,7 @@ export default async function NotePage({ params }: { params: { slug: string } })
         <MdxContent content={content} />
       </main>
     );
-  } catch (e) {
+  } catch {
     notFound();
   }
 }

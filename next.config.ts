@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx';
 
-const withMDX = require('@next/mdx')({
+const withMDX = createMDX({
   extension: /\.mdx?$/,
 });
 

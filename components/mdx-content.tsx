@@ -12,7 +12,12 @@ export function MdxContent({ content }: { content: string }) {
         h3: (props) => <h3 className="text-xl font-medium mt-6 mb-2" {...props} />,
         p: (props) => <p className="leading-7 mb-4 text-base" {...props} />,
         code: (props) => {
-          const { node, inline, className, children, ref, ...restProps } = props as any;
+          const { inline, className, children, ...restProps } = props as {
+            inline?: boolean;
+            className?: string;
+            children: React.ReactNode;
+            [key: string]: unknown;
+          };
           
           if (inline) {
             return (
@@ -21,10 +26,6 @@ export function MdxContent({ content }: { content: string }) {
               </code>
             );
           }
-          
-          // ブロックコードの場合、言語を取得
-          const match = /language-(\w+)/.exec(className || '');
-          const language = match ? match[1] : '';
           
           return (
             <div className="my-4">
