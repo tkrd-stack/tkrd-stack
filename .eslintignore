@@ -1,0 +1,3 @@
+# Unity WebGL build outputs (自動生成ファイルはlint対象外)
+public/unity/
+app/unity/
