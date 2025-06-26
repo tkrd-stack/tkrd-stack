@@ -1,5 +1,5 @@
 import { getAllNotes } from "@/lib/get-notes";
-import {NotesList} from "@/components/notes-list";
+import {NotesList} from "@/app/_components/notes-list";
 
 export default async function NotesIndexPage() {
   const notes = await getAllNotes();
