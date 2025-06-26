@@ -37,7 +37,7 @@ npm install --save @types/node
 - 決められた型のみが代入され、プログラムが安全に操作することができる。
 
 ```typescript
-const message: string = 'hello';
+const message: string = "hello";
 // :string　の部分が型注釈
 ```
 
@@ -187,8 +187,8 @@ function showMonth(month: string | number) {
 
 ```typescript
 function showMonth(month: string | number) {
-  if (month === 'string') {
-    console.log(month.padStart(2, '0')); //waringが発生しない
+  if (month === "string") {
+    console.log(month.padStart(2, "0")); //waringが発生しない
   }
 }
 ```
@@ -201,8 +201,8 @@ function showMonth(month: string | number) {
 
 ```typescript
 function showMonth(month: string | number) {
-  if (typeof month === 'string') {
-    console.log(month.padStart(2, '0'));
+  if (typeof month === "string") {
+    console.log(month.padStart(2, "0"));
   }
 }
 ```
@@ -320,12 +320,14 @@ asyncFuncTime();
 
 ### import キーワード
 
-- export で公開した対象を別のファイルで読み込み使うことができる。
+- export で公開した対象を別のファイルで読み込み使うことができる
+  。
 
 ### export default キーワード
 
 - default キーワードを使うと、モジュールがデフォルトで 1 つのみを export することを意味する。
-- import の際に別名指定をすることが可能。
+- import の際に別名指定をすることが可能
+  。
 
 ### export と default export の違い
 

@@ -31,6 +31,7 @@ date: "2025-06-25"
 **HTML**（**H**yper**T**ext **M**arkup **L**anguage）は、ウェブサイトのコンテンツ構造を作成するためのマークアップ言語です。
 
 HTMLの主な特徴：
+
 - コンテンツを段落、リスト、画像、テーブルなどの要素で構成
 - 「要素」という部品を使ってコンテンツを囲み、特定の見た目や機能を付与
 - タグを使用してテキストの装飾やリンクの作成が可能
@@ -126,14 +127,14 @@ HTML5のセマンティック要素により、ページの構造を意味に基
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ページタイトル</title>
-</head>
-<body>
-  <!-- ページのメインコンテンツ -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ページタイトル</title>
+  </head>
+  <body>
+    <!-- ページのメインコンテンツ -->
+  </body>
 </html>
 ```
 
@@ -217,24 +218,24 @@ HTML5のセマンティック要素により、ページの構造を意味に基
 
 ### 共通属性
 
-| 属性 | 説明 | 例 |
-|------|------|-----|
-| `id` | 一意の識別子 | `<div id="main-content">` |
-| `class` | CSS クラス名 | `<p class="highlight">` |
-| `style` | インラインスタイル | `<p style="color: red;">` |
-| `title` | ツールチップテキスト | `<span title="説明">` |
+| 属性    | 説明                 | 例                        |
+| ------- | -------------------- | ------------------------- |
+| `id`    | 一意の識別子         | `<div id="main-content">` |
+| `class` | CSS クラス名         | `<p class="highlight">`   |
+| `style` | インラインスタイル   | `<p style="color: red;">` |
+| `title` | ツールチップテキスト | `<span title="説明">`     |
 
 ### よく使用される属性
 
 ```html
 <!-- リンク要素 -->
 <a href="URL" target="_blank" title="リンクの説明">
+  <!-- 画像要素 -->
+  <img src="画像パス" alt="代替テキスト" width="幅" height="高さ" />
 
-<!-- 画像要素 -->
-<img src="画像パス" alt="代替テキスト" width="幅" height="高さ">
-
-<!-- フォーム要素 -->
-<input type="text" name="username" placeholder="ユーザー名を入力">
+  <!-- フォーム要素 -->
+  <input type="text" name="username" placeholder="ユーザー名を入力"
+/></a>
 ```
 
 ## コンテンツモデル
@@ -286,7 +287,7 @@ HTML5で追加された意味を持つタグ：
       <p>記事の内容</p>
     </section>
   </article>
-  
+
   <aside>
     <h2>関連記事</h2>
     <ul>
@@ -314,16 +315,16 @@ HTML5で追加された意味を持つタグ：
 <form action="/submit" method="POST">
   <fieldset>
     <legend>ユーザー情報</legend>
-    
+
     <label for="username">ユーザー名:</label>
-    <input type="text" id="username" name="username" required>
-    
+    <input type="text" id="username" name="username" required />
+
     <label for="email">メールアドレス:</label>
-    <input type="email" id="email" name="email" required>
-    
+    <input type="email" id="email" name="email" required />
+
     <label for="password">パスワード:</label>
-    <input type="password" id="password" name="password" required>
-    
+    <input type="password" id="password" name="password" required />
+
     <button type="submit">送信</button>
     <button type="reset">リセット</button>
   </fieldset>
@@ -332,22 +333,23 @@ HTML5で追加された意味を持つタグ：
 
 ### input要素のtype属性
 
-| タイプ | 説明 | 例 |
-|--------|------|-----|
-| `text` | テキスト入力 | `<input type="text">` |
-| `email` | メールアドレス | `<input type="email">` |
-| `password` | パスワード | `<input type="password">` |
-| `number` | 数値入力 | `<input type="number">` |
-| `date` | 日付選択 | `<input type="date">` |
+| タイプ     | 説明             | 例                        |
+| ---------- | ---------------- | ------------------------- |
+| `text`     | テキスト入力     | `<input type="text">`     |
+| `email`    | メールアドレス   | `<input type="email">`    |
+| `password` | パスワード       | `<input type="password">` |
+| `number`   | 数値入力         | `<input type="number">`   |
+| `date`     | 日付選択         | `<input type="date">`     |
 | `checkbox` | チェックボックス | `<input type="checkbox">` |
-| `radio` | ラジオボタン | `<input type="radio">` |
-| `file` | ファイル选择 | `<input type="file">` |
-| `submit` | 送信ボタン | `<input type="submit">` |
-| `reset` | リセットボタン | `<input type="reset">` |
+| `radio`    | ラジオボタン     | `<input type="radio">`    |
+| `file`     | ファイル选择     | `<input type="file">`     |
+| `submit`   | 送信ボタン       | `<input type="submit">`   |
+| `reset`    | リセットボタン   | `<input type="reset">`    |
 
 ### フォーム属性
 
 #### action属性
+
 ```html
 <form action="/api/submit" method="POST">
   <!-- フォームデータの送信先URL -->
@@ -355,25 +357,27 @@ HTML5で追加された意味を持つタグ：
 ```
 
 #### method属性
+
 ```html
 <!-- GET: URLパラメータでデータ送信 -->
 <form method="GET">
-
-<!-- POST: リクエストボディでデータ送信 -->
-<form method="POST">
+  <!-- POST: リクエストボディでデータ送信 -->
+  <form method="POST"></form>
+</form>
 ```
 
 ### フォームバリデーション
 
 ```html
-<input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-<input type="text" minlength="3" maxlength="20">
-<input type="number" min="0" max="100">
+<input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+<input type="text" minlength="3" maxlength="20" />
+<input type="number" min="0" max="100" />
 ```
 
 ## まとめ
 
 HTMLは：
+
 - ウェブページの**構造**を定義するマークアップ言語
 - **セマンティック**な要素を使用して意味のある構造を作成
 - **アクセシビリティ**と**SEO**を向上させる重要な技術

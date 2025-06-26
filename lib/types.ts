@@ -1,4 +1,3 @@
-
 export type NoteMeta = {
   slug: string;
   title: string;

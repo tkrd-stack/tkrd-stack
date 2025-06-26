@@ -5,7 +5,6 @@ slug: "nodejs"
 date: "2025-06-26"
 ---
 
-
 # Node.js
 
 ## 1. サーバー構築
@@ -36,16 +35,16 @@ date: "2025-06-26"
 ### サーバー構築の基本コード例
 
 ```jsx
-const express = require('express');
+const express = require("express");
 const app = express();
-require('dotenv').config();
+require("dotenv").config();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Server is running...');
+  console.log("Server is running...");
 });
 ```
 
@@ -72,15 +71,15 @@ app.listen(process.env.PORT || 3000, () => {
 ### MongoDB 接続の基本コード例
 
 ```jsx
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 ```
 
 ---
@@ -106,10 +105,10 @@ mongoose
 ### Axios 使用例
 
 ```jsx
-const axios = require('axios');
+const axios = require("axios");
 
 axios
-  .get('https://api.example.com/data')
+  .get("https://api.example.com/data")
   .then((response) => console.log(response.data))
   .catch((error) => console.error(error));
 ```
@@ -144,9 +143,9 @@ function sum(a, b) {
 module.exports = sum;
 
 // sum.test.js
-const sum = require('./sum');
+const sum = require("./sum");
 
-test('adds 1 + 2 to equal 3', () => {
+test("adds 1 + 2 to equal 3", () => {
   expect(sum(1, 2)).toBe(3);
 });
 ```
@@ -188,26 +187,26 @@ test('adds 1 + 2 to equal 3', () => {
 ### 基本的なセキュリティコード例
 
 ```jsx
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
+const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
 
 const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 // パスワードのハッシュ化
-const password = 'myPassword123';
+const password = "myPassword123";
 const hashedPassword = bcrypt.hashSync(password, 10);
-console.log('Hashed Password:', hashedPassword);
+console.log("Hashed Password:", hashedPassword);
 
 // JWT生成
-const token = jwt.sign({ userId: 1 }, 'yourSecretKey', { expiresIn: '1h' });
-console.log('Generated Token:', token);
+const token = jwt.sign({ userId: 1 }, "yourSecretKey", { expiresIn: "1h" });
+console.log("Generated Token:", token);
 ```
 
 ---
@@ -233,7 +232,7 @@ console.log('Generated Token:', token);
 ### Lodash 使用例
 
 ```jsx
-const _ = require('lodash');
+const _ = require("lodash");
 
 const arr = [1, 2, 3, 4, 5];
 console.log(_.shuffle(arr));
@@ -412,7 +411,7 @@ package.json の中で「scripts」の中に以下のような記述をすると
 ## 作成方法
 
 ```jsx
-const EventEmitter = require('events');
+const EventEmitter = require("events");
 const myEmitter = new EventEmitter(); //EventEmitterインスタンスの作成
 ```
 
@@ -424,14 +423,14 @@ const myEmitter = new EventEmitter(); //EventEmitterインスタンスの作成
   emit 関数でイベントが発動し、第 2 引数以降の args を引数として渡す。
 
 ```jsx
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 const eventEmitter = new EventEmitter();
 
-eventEmitter.on('myEvent', () => {
-  console.log('Emitted Event');
+eventEmitter.on("myEvent", () => {
+  console.log("Emitted Event");
 });
 
-eventEmitter.emit('myEvent');
+eventEmitter.emit("myEvent");
 ```
 
 ## 同期 or 非同期
@@ -490,15 +489,15 @@ ejs:<%= 変数 %>
 
   ```jsx
   let data = {
-    taro: '090-1234-5678',
-    jiro: '080-1234-5678',
-    saburo: '070-1234-5678',
+    taro: "090-1234-5678",
+    jiro: "080-1234-5678",
+    saburo: "070-1234-5678",
   };
   let content = ejs.render(index_page, {
-    title: 'Hello World',
+    title: "Hello World",
     msg: msg,
     data: data,
-    filename: 'data_item',
+    filename: "data_item",
   });
   ```
 

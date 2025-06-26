@@ -5,7 +5,6 @@ slug: "express"
 date: "2025-06-26"
 ---
 
-
 # Express
 
 - [公式サイト](https://expressjs.com/ja/)
@@ -113,7 +112,7 @@ Express の基本はミドルウェアの積み重ねで、各ミドルウェア
 
 - GET メソッドに対応するハンドラを指定。
   ```jsx
-  app.get('/users/:user_id', (req, res) => {
+  app.get("/users/:user_id", (req, res) => {
     res.send(`Get user ${req.params.user_id}.\n`);
   });
   ```
@@ -159,21 +158,21 @@ Passport が管理するのはセッションを利用したユーザー認証�
 ### 1. `users.js`にルートを定義
 
 ```jsx
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 // ユーザー一覧を取得するルート
-router.get('/', (req, res) => {
-  res.send('ユーザー一覧');
+router.get("/", (req, res) => {
+  res.send("ユーザー一覧");
 });
 
 // ユーザーを追加するルート
-router.post('/', (req, res) => {
-  res.send('ユーザーを追加しました');
+router.post("/", (req, res) => {
+  res.send("ユーザーを追加しました");
 });
 
 // 特定のユーザーを取得するルート
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   res.send(`ユーザーID: ${req.params.id}`);
 });
 
@@ -187,15 +186,15 @@ module.exports = router;
 `app.js`で`users.js`のルートを組み込む方法です。
 
 ```jsx
-const express = require('express');
+const express = require("express");
 const app = express();
-const userRouter = require('./users'); // 先ほど作成したルートをインポート
+const userRouter = require("./users"); // 先ほど作成したルートをインポート
 
 // "users"に関連するルートを "/users" にマウント
-app.use('/users', userRouter);
+app.use("/users", userRouter);
 
 app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+  console.log("Server is running on http://localhost:3000");
 });
 ```
 

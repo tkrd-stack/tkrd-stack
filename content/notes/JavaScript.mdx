@@ -55,7 +55,6 @@ ES5 と ES6 では書き方が違う部分がある。
 ```
 
 - body 要素(閉じタグ)の直前
-
   - ページ高速化の手法として body の閉じタグ直前に配置する。ブラウザはスクリプトの読み込みや実行が完了するまでコンテンツを描画しないため、スクリプトに時間が掛かればページの描画に時間が掛かる。コンテンツの描画を終えた後にスクリプトを読み込み、実行できる。
 
   ```javascript
@@ -85,7 +84,7 @@ ES5 と ES6 では書き方が違う部分がある。
 外部ファイルとして別に定義できる。
 
 ```javascript
-<script src='path'></script> // pathはjsファイルの場所
+<script src="path"></script> // pathはjsファイルの場所
 ```
 
 以下のような書き方は注意。
@@ -107,7 +106,7 @@ JavaScript は仕様として存在しているが、現在では安全性や効
 strict モードの有効化はスクリプトの先頭に”use strict”;を追加する。
 
 ```javascript
-'use strict';
+"use strict";
 // 以下コードがstrict対象
 ```
 
@@ -115,7 +114,7 @@ strict モードの有効化はスクリプトの先頭に”use strict”;を�
 
 ```javascript
 function getName() {
-  'use strict';
+  "use strict";
   // 以下コードがstrict対象
 }
 ```
@@ -209,7 +208,7 @@ JavaScript には深い歴史があり、ブラウザで動く言語といえば
 - let 変数名 = 値;
 
 ```javascript
-let msg = 'こんにちは'; // 変数宣言
+let msg = "こんにちは"; // 変数宣言
 console.log(msg); // 処理　結果：こんにちは
 ```
 
@@ -234,8 +233,8 @@ let msg;
 - 複数の宣言を列挙
 
 ```javascript
-let mag = 'hello',
-  msg = 'goodnight';
+let mag = "hello",
+  msg = "goodnight";
 ```
 
 デバッグ時にステップ実行を阻害。
@@ -243,7 +242,7 @@ let mag = 'hello',
 - var 命令による宣言
 
 ```javascript
-var msg = 'hello';
+var msg = "hello";
 ```
 
 バグの遠因。
@@ -251,7 +250,7 @@ var msg = 'hello';
 - let, var を省略した宣言。
 
 ```javascript
-msg = 'hello';
+msg = "hello";
 ```
 
 アプリ全体で変数が有効になってしまう。strict モードでは許可されないなど。
@@ -265,15 +264,15 @@ msg = 'hello';
 コードの意図を把握しやすくする変数。
 
 ```javascript
-let member = '田中太郎,女,25,aaaaa@gmail.com';
-if (member.split(',')[1] === '女') {
+let member = "田中太郎,女,25,aaaaa@gmail.com";
+if (member.split(",")[1] === "女") {
 } // 直観的でない
 ```
 
 ```javascript
-let member = '田中太郎,女,25,aaaaa@gmail.com';
-let gender = member.split(',')[1];
-if (gender === '女') {
+let member = "田中太郎,女,25,aaaaa@gmail.com";
+let gender = member.split(",")[1];
+if (gender === "女") {
 } // 直観的
 ```
 
@@ -312,16 +311,16 @@ _変数名;
 
 ```javascript
 // 加算
-console.log('java' + 'script'); //javascript
-console.log('10' + '1'); //101
-console.log('54' + 3); //543
-console.log(1 + '2' + 3); //123
-console.log(1 + 2 + '3'); //33
+console.log("java" + "script"); //javascript
+console.log("10" + "1"); //101
+console.log("54" + 3); //543
+console.log(1 + "2" + 3); //123
+console.log(1 + 2 + "3"); //33
 
 // 除算
-console.log('java' - 'script'); //NaN (Not a Number)
-console.log('10' - '1'); //9
-console.log('5' - 6); //-1
+console.log("java" - "script"); //NaN (Not a Number)
+console.log("10" - "1"); //9
+console.log("5" - 6); //-1
 ```
 
 JavaScript は内部的に計算は 2 進数を用いて計算してるため、小数点を用いた演算は誤差を生み出してしまうことがある。
@@ -384,8 +383,8 @@ console.log(0.1 * 10 * 3); //0.6
 比較演算子を使うときもデータの基本型と参照型で違いが発生するので注意。
 
 ```javascript
-let data1 = ['name', 'age', 'gender'];
-let data2 = ['name', 'age', 'gender'];
+let data1 = ["name", "age", "gender"];
+let data2 = ["name", "age", "gender"];
 console.log(data1 == data2); // false
 ```
 
@@ -461,7 +460,7 @@ let rest;
 [a, b, ...rest] = [10, 20, 30, 40, 50];
 console.log(rest); // 30, 40, 50
 
-[first, ...rest] = 'hello';
+[first, ...rest] = "hello";
 console.log(rest); // ['e','l','l','o']
 ```
 
@@ -469,12 +468,12 @@ console.log(rest); // ['e','l','l','o']
 
 ```javascript
 let book = {
-  title: 'ためになる本',
-  publisher: '為成出版',
+  title: "ためになる本",
+  publisher: "為成出版",
   price: 1600,
 };
 
-let { price, title, memo = '為' } = book;
+let { price, title, memo = "為" } = book;
 
 console.log(title); // ためになる本
 ```
@@ -483,11 +482,11 @@ console.log(title); // ためになる本
 
 ```javascript
 let book = {
-  title: 'ためになる本',
-  publisher: '為成出版',
+  title: "ためになる本",
+  publisher: "為成出版",
   price: 1600,
   other: {
-    keywd: 'お金',
+    keywd: "お金",
     page: 145,
   },
 };
@@ -505,8 +504,8 @@ console.log(page); // 145
 
 ```javascript
 let book = {
-  title: 'ためになる本',
-  publisher: '為成出版',
+  title: "ためになる本",
+  publisher: "為成出版",
   price: 1600,
 };
 
@@ -520,8 +519,8 @@ console.log(company); // 為成出版
 
 ```javascript
 let book = {
-  title: 'ためになる本',
-  publisher: '為成出版',
+  title: "ためになる本",
+  publisher: "為成出版",
   price: 1600,
 };
 
@@ -590,14 +589,14 @@ const err = if(isTrue){}; // これは文であり、変数に代入できない
 - 文の末尾には;(セミコロン)を付ける。
 
 ```javascript
-console.log('hello');
-console.log('hello'); // 読みづらい
+console.log("hello");
+console.log("hello"); // 読みづらい
 ```
 
 - 文の途中でインデント、改行を含めることができる。
 
 ```javascript
-console.log('hello');
+console.log("hello");
 ```
 
 ただし、可読性を考えた場合に改行は以下のルールに則った方がよい。
@@ -695,7 +694,7 @@ const を優先して利用。
 - 動的型付け言語
   変数に異なるデータ型の値を代入することが可能。
   ```javascript
-  let greeting = 'こんにちは、JavaScript';
+  let greeting = "こんにちは、JavaScript";
   console.log(greeting); // こんにちは、JavaScript
   greeting = 100;
   console.log(greeting); // 100
@@ -778,7 +777,6 @@ number(数値)を表す。
   - 2 進数　接頭辞：0b
 - 浮動小数点
   小数点数だけでなく指数表現も存在する。
-
   - <仮数部> e <符号><指数部>
 
     3.14e5 = 3.14 × 105(5 は指数)
@@ -800,8 +798,8 @@ string(文字列)を表す。
 シングルクォーテーションもしくはダブルクォーテーションで区切る。
 
 ```javascript
-'hello'; // シングルクォーテーション
-'hello'; // ダブルクォーテーション
+"hello"; // シングルクォーテーション
+"hello"; // ダブルクォーテーション
 ```
 
 シングルクォーテーションもしくはダブルクォーテーションを string として使いたい場合
@@ -840,7 +838,7 @@ string(文字列)を表す。
 エスケープシーケンスを使うことで文字列中に改行を入れれる。
 
 ```javascript
-console.log('こんにちは。 \nJavaScript！！');
+console.log("こんにちは。 \nJavaScript！！");
 //こんにちは。
 //JavaScript！！
 ```
@@ -857,7 +855,7 @@ ES2015 で追加。
 - 文字列への変数の埋め込み
 
 ```javascript
-let name = 'tanaka';
+let name = "tanaka";
 let intro = `初めまして。${name}と言います。
  よろしくお願いします！！`;
 console.log(intro);
@@ -883,21 +881,21 @@ array(配列)はデータの集合。
 配列中の値を要素と言い、要素の位置を添え字(インデックス)という。
 
 ```javascript
-let programming = ['JavaScript', 'PHP', 'Ruby', 'Python', 'Perl'];
+let programming = ["JavaScript", "PHP", "Ruby", "Python", "Perl"];
 console.log(programming[0]); // JavaScript
 ```
 
 インデックスは「0」からスタートする。
 
 ```javascript
-prigramming[0] = 'java'; // JavaScriptをjavaに上書き
-prigramming[10] = 'Rust'; // 新しい要素を追加
+prigramming[0] = "java"; // JavaScriptをjavaに上書き
+prigramming[10] = "Rust"; // 新しい要素を追加
 ```
 
 配列のインデックスが飛び番号になった場合、間の要素には空の配列が生成される。これを疎な配列という。
 
 ```javascript
-prigramming[5] = 'java'; // undefined
+prigramming[5] = "java"; // undefined
 ```
 
 ### **入れ子の配列**
@@ -906,9 +904,9 @@ prigramming[5] = 'java'; // undefined
 
 ```javascript
 let date = [
-  ['javascript', 'js'],
-  ['python', 'py'],
-  ['ruby', 'rb'],
+  ["javascript", "js"],
+  ["python", "py"],
+  ["ruby", "rb"],
 ];
 console.log(data[0][1]); // js
 ```
@@ -928,9 +926,9 @@ console.log(data[0][1]); // js
 
 ```javascript
 const fruit = {
-  apple: 'リンゴ',
-  orange: 'オレンジ',
-  grape: 'ブドウ',
+  apple: "リンゴ",
+  orange: "オレンジ",
+  grape: "ブドウ",
 };
 ```
 
@@ -941,11 +939,11 @@ const fruit = {
 ```javascript
 const fruit = {
   apple: {
-    name: 'リンゴ',
-    color: 'red',
+    name: "リンゴ",
+    color: "red",
   },
-  orange: 'オレンジ',
-  grape: 'ブドウ',
+  orange: "オレンジ",
+  grape: "ブドウ",
 };
 ```
 
@@ -971,7 +969,7 @@ aplle: "リンゴ"　//OK
 
 ```javascript
 fruit.apple; //ドット記法
-fruit['apple']; //ブラケット記法
+fruit["apple"]; //ブラケット記法
 ```
 
 ドット記法の方が楽に書けるが、以下の場合にブラケット記法を用いる。
@@ -981,8 +979,8 @@ fruit['apple']; //ブラケット記法
 - 変数の値をプロパティ名に使う
 
 ```javascript
-let obj = { 'wakayama-ken': 'wakayama' };
-console.log(obj['wakayama-ken']); // wakayama
+let obj = { "wakayama-ken": "wakayama" };
+console.log(obj["wakayama-ken"]); // wakayama
 ```
 
 ```javascript
@@ -991,9 +989,9 @@ console.log(obj[false]); // 0
 ```
 
 ```javascript
-let wakayama = 'wakayama';
-let obj = { 'wakayama-ken': 'wakayama' };
-console.log(obj['wakayama-ken']); // wakayama
+let wakayama = "wakayama";
+let obj = { "wakayama-ken": "wakayama" };
+console.log(obj["wakayama-ken"]); // wakayama
 ```
 
 ### **イミュータブル(immutable)**
@@ -1001,8 +999,8 @@ console.log(obj['wakayama-ken']); // wakayama
 オブジェクトは改変することができない。このような行為を破壊的という。
 
 ```javascript
-let str = 'abcde';
-str[0] = 'x'; // 破壊的
+let str = "abcde";
+str[0] = "x"; // 破壊的
 console.log(str); // abcde
 ```
 
@@ -1106,7 +1104,7 @@ undefined
 ```javascript
 let x;
 console.log(x);
-let obj = { name: 'tanaka' }; // undefined
+let obj = { name: "tanaka" }; // undefined
 console.log(obj.age); // undefined
 ```
 
@@ -1164,7 +1162,7 @@ let x = 10;
 if (x > 5) {
   console.log(x); // 10
 } else {
-  consolo.log('10より小さい値です。'); //10より小さい値です。
+  consolo.log("10より小さい値です。"); //10より小さい値です。
 }
 ```
 
@@ -1198,7 +1196,7 @@ if (x < 5) {
 } else if (x >= 5) {
   console.log(x); // 10
 } else {
-  consolo.log('10より小さい値です。');
+  consolo.log("10より小さい値です。");
 }
 ```
 
@@ -1207,11 +1205,11 @@ if (x < 5) {
 ```javascript
 let x = 10;
 if (x > 5) {
-  console.log('ここが実行される。'); // ここが実行される。
+  console.log("ここが実行される。"); // ここが実行される。
 } else if (x >= 5) {
-  console.log('ここは実行されない。');
+  console.log("ここは実行されない。");
 } else {
-  consolo.log('10より小さい値です。');
+  consolo.log("10より小さい値です。");
 }
 ```
 
@@ -1235,20 +1233,20 @@ switch(式) {
 case 句の break を忘れると次の case 句が実行されてしまうので、抜けていないか注意が必要。
 
 ```javascript
-let rank = 'B';
+let rank = "B";
 
 switch (rank) {
-  case 'A':
-    console.log('Aランクです。');
+  case "A":
+    console.log("Aランクです。");
     break;
-  case 'B':
-    console.log('Bランクです。'); // 実行
+  case "B":
+    console.log("Bランクです。"); // 実行
     break;
-  case 'C':
-    console.log('Cランクです。');
+  case "C":
+    console.log("Cランクです。");
     break;
   default:
-    console.log('ランク外です。');
+    console.log("ランク外です。");
     break;
 }
 ```
@@ -1256,16 +1254,16 @@ switch (rank) {
 あえて case 句を書かずに一緒に条件の判断をしてしまう方法もある。これをウォークスルーという。条件式でいうと or の意味を持つ。
 
 ```javascript
-let rank = 'B';
+let rank = "B";
 
 switch (rank) {
-  case 'A':
-  case 'B':
-  case 'C':
-    console.log('上位ランクです。');
+  case "A":
+  case "B":
+  case "C":
+    console.log("上位ランクです。");
     break;
   default:
-    console.log('下位ランクです。');
+    console.log("下位ランクです。");
     break;
 }
 ```
@@ -1371,9 +1369,9 @@ for (仮変数 in オブジェクト) {
 
 ```javascript
 let fruits = {
-  apple: 'リンゴ',
-  orange: 'オレンジ',
-  grape: 'ブドウ',
+  apple: "リンゴ",
+  orange: "オレンジ",
+  grape: "ブドウ",
 };
 
 for (fruit in fruits) {
@@ -1404,7 +1402,7 @@ for (仮変数 of 反復可能なオブジェクト) {
 仮変数には実際の値が入るため for…in 命令よりもコードがシンプルに見える。
 
 ```javascript
-let fruits = ['apple', 'oragen', 'banana'];
+let fruits = ["apple", "oragen", "banana"];
 
 for (fruit of fruits) {
   console.log(fruit);
@@ -1420,9 +1418,9 @@ for..of 命令でも分割代入を使うことができる。
 
 ```javascript
 let books = [
-  ['男飯', '飯出版'],
-  ['技術は手から', '技能出版'],
-  ['english is easy', '英語出版'],
+  ["男飯", "飯出版"],
+  ["技術は手から", "技能出版"],
+  ["english is easy", "英語出版"],
 ];
 
 for (let [title, publisher] of books) {
@@ -1459,7 +1457,7 @@ for (let i = 0; i < 50; i++) {
 ```javascript
 for (let i = 0; i < 4; i++) {
   if (i == 2) {
-    console.log('skip'); // i=2の時はifブロック以下をスキップ
+    console.log("skip"); // i=2の時はifブロック以下をスキップ
     continue;
   }
   console.log(i);
@@ -1519,7 +1517,7 @@ try {
 } catch (e) {
   console.log(`${e.name}:${e.message}`);
 } finally {
-  console.log('処理が終了しました。');
+  console.log("処理が終了しました。");
 }
 /*
 ReferenceError:j is not defined
@@ -1535,7 +1533,7 @@ try {
 } catch (e) {
   console.log(`${e.name}:${e.message}`); // skipされる。
 } finally {
-  console.log('処理が終了しました。');
+  console.log("処理が終了しました。");
 }
 /*
 処理が終了しました。
@@ -1561,7 +1559,7 @@ let x = 1;
 let y = 0;
 
 try {
-  if (y == 0) throw new Error('0で除算できません。');
+  if (y == 0) throw new Error("0で除算できません。");
   let z = x / y;
 } catch (e) {
   console.log(e.message);
@@ -1613,8 +1611,8 @@ ES2015 で追加された型。名前の通りシンボル（モノ）を作成�
 ## シンボルの性質
 
 ```javascript
-let sym1 = Symbol('sym');
-let sym2 = Symbol('sym');
+let sym1 = Symbol("sym");
+let sym2 = Symbol("sym");
 
 console.log(typeof sym1); //symbol
 console.log(sym1.toString()); //Symbol(sym)
@@ -1632,7 +1630,7 @@ Symbol([desc]); //desc:シンボルの説明
 またシンボルでは暗黙的な型変換（文字列 ⇔ 数値）ができない。しかし、boolean 型への変換は可能。
 
 ```javascript
-console.log(sym1 + ''); //TypeError: Cannot convert a Symbol value to a string
+console.log(sym1 + ""); //TypeError: Cannot convert a Symbol value to a string
 console.log(sym1 - 0); //TypeError: Cannot convert a Symbol value to a number
 console.log(typeof !!sym1); //boolean
 ```
@@ -1724,7 +1722,7 @@ console.log(result);
 
 ```javascript
 function hello() {
-  console.log('hello');
+  console.log("hello");
 }
 
 function hi(callback) {
@@ -1737,11 +1735,11 @@ hi(hello);
 ```javascript
 function A(text) {
   text();
-  console.log('accept message');
+  console.log("accept message");
 }
 
 A(function () {
-  console.log('こんにちは');
+  console.log("こんにちは");
 });
 ```
 
@@ -1752,11 +1750,11 @@ A(function () {
 ```javascript
 function A(text) {
   text();
-  console.log('accept message');
+  console.log("accept message");
 }
 
 A(function () {
-  console.log('こんにちは');
+  console.log("こんにちは");
 });
 ```
 
@@ -1767,13 +1765,13 @@ A(function () {
 ```javascript
 function fetchData(callback) {
   setTimeout(() => {
-    console.log('Data fetched');
+    console.log("Data fetched");
     callback(); // 処理完了後にコールバック関数を呼び出す
   }, 2000);
 }
 
 function processFetchedData() {
-  console.log('Processing fetched data...');
+  console.log("Processing fetched data...");
 }
 
 fetchData(processFetchedData);

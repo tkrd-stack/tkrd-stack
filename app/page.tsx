@@ -11,14 +11,16 @@ export default async function HomePage() {
   return (
     <main className="space-y-16 px-4 py-12 max-w-4xl mx-auto">
       {/* Hero セクション */}
-      <Hero/>
+      <Hero />
       <section className="text-center max-w-2xl mx-auto">
-  <h2 className="text-xl font-semibold mb-2">Web制作・開発のご依頼も承ります</h2>
-  <p className="text-muted-foreground text-sm mb-4">
-    和歌山を拠点に、Webアプリケーションやサイト制作のご相談も受け付けています。
-    デザイン・UI/UX設計・React/Next.jsによる開発など、お気軽にお問い合わせください。
-  </p>
-</section>
+        <h2 className="text-xl font-semibold mb-2">
+          Web制作・開発のご依頼も承ります
+        </h2>
+        <p className="text-muted-foreground text-sm mb-4">
+          和歌山を拠点に、Webアプリケーションやサイト制作のご相談も受け付けています。
+          デザイン・UI/UX設計・React/Next.jsによる開発など、お気軽にお問い合わせください。
+        </p>
+      </section>
       {/* 技術ノートハイライト（仮） */}
       <NotesHighlight notes={latestNotes} />
 
@@ -31,7 +33,9 @@ export default async function HomePage() {
               <CardTitle>SkillFlow</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm">学習履歴に基づいて次の教材を提案するアプリ(制作中)</p>
+              <p className="text-sm">
+                学習履歴に基づいて次の教材を提案するアプリ(制作中)
+              </p>
             </CardContent>
           </Card>
           <Card className="w-full sm:w-[calc(50%-0.5rem)]">
@@ -39,7 +43,9 @@ export default async function HomePage() {
               <CardTitle>Refeel</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm">感情を可視化して内面を振り返るアプリ(制作中)</p>
+              <p className="text-sm">
+                感情を可視化して内面を振り返るアプリ(制作中)
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -47,7 +53,9 @@ export default async function HomePage() {
 
       {/* 最後のCTA */}
       <section className="text-center space-y-2">
-        <p className="text-muted-foreground text-sm">もっと詳しく知りたい方へ</p>
+        <p className="text-muted-foreground text-sm">
+          もっと詳しく知りたい方へ
+        </p>
         <Button asChild>
           <Link href="/contact">お問い合わせ</Link>
         </Button>

@@ -19,9 +19,7 @@ export default function SkillFlowPage() {
             <CardHeader>
               <CardTitle>スキル一覧</CardTitle>
             </CardHeader>
-            <CardContent>
-              {/* 進捗バーチャートやリスト */}
-            </CardContent>
+            <CardContent>{/* 進捗バーチャートやリスト */}</CardContent>
           </Card>
         </TabsContent>
 
@@ -30,9 +28,7 @@ export default function SkillFlowPage() {
             <CardHeader>
               <CardTitle>次に学ぶ教材</CardTitle>
             </CardHeader>
-            <CardContent>
-              {/* 書籍・動画などカード表示 */}
-            </CardContent>
+            <CardContent>{/* 書籍・動画などカード表示 */}</CardContent>
           </Card>
         </TabsContent>
       </Tabs>

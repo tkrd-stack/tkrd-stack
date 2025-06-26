@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -41,18 +43,44 @@ export default function ContactPage() {
           <Input name="name" type="text" placeholder="お名前を入力" required />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">メールアドレス</label>
-          <Input name="email" type="email" placeholder="example@example.com" required />
+          <label className="block text-sm font-medium mb-1">
+            メールアドレス
+          </label>
+          <Input
+            name="email"
+            type="email"
+            placeholder="example@example.com"
+            required
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1">お問い合わせ内容</label>
-          <Textarea name="message" placeholder="ご質問やご相談内容をご記入ください" rows={6} required />
+          <label className="block text-sm font-medium mb-1">
+            お問い合わせ内容
+          </label>
+          <Textarea
+            name="message"
+            placeholder="ご質問やご相談内容をご記入ください"
+            rows={6}
+            required
+          />
         </div>
-        <Button type="submit" className="w-full" disabled={status === "loading"}>
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={status === "loading"}
+        >
           {status === "loading" ? "送信中..." : "送信する"}
         </Button>
-        {status === "success" && <p className="text-green-600 text-sm">送信されました。ありがとうございました！</p>}
-        {status === "error" && <p className="text-red-600 text-sm">送信に失敗しました。時間をおいてお試しください。</p>}
+        {status === "success" && (
+          <p className="text-green-600 text-sm">
+            送信されました。ありがとうございました！
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-red-600 text-sm">
+            送信に失敗しました。時間をおいてお試しください。
+          </p>
+        )}
       </form>
     </main>
   );

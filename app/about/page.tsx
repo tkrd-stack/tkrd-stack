@@ -11,7 +11,7 @@ export default function AboutPage() {
           <p className="text-muted-foreground">
             Webエンジニア／教育者。上流から下流、子どもから大人までをつなぐ技術者。
           </p>
-  和歌山を拠点に、Web技術・教育・創作をテーマに活動中のポートフォリオ兼実験場です。
+          和歌山を拠点に、Web技術・教育・創作をテーマに活動中のポートフォリオ兼実験場です。
         </CardHeader>
         <Separator />
         <CardContent className="mt-4 space-y-6">
@@ -31,16 +31,24 @@ export default function AboutPage() {
             <div className="space-y-2 text-sm">
               <div>
                 <p className="font-semibold">スタジオノモス（2016〜）</p>
-                <p className="text-muted-foreground">大学向けWebシステムやEC製品の受託開発。HTML, CSS, JavaScript, PHP, Java, Oracle, PostgreSQLなどを使用。</p>
-
+                <p className="text-muted-foreground">
+                  大学向けWebシステムやEC製品の受託開発。HTML, CSS, JavaScript,
+                  PHP, Java, Oracle, PostgreSQLなどを使用。
+                </p>
               </div>
               <div>
                 <p className="font-semibold">Sky株式会社（2020〜2021）</p>
-                <p className="text-muted-foreground">自動車メーカー社内システム開発。要件定義〜テストまで担当。</p>
+                <p className="text-muted-foreground">
+                  自動車メーカー社内システム開発。要件定義〜テストまで担当。
+                </p>
               </div>
               <div>
-                <p className="font-semibold">アントレキッズ和歌山校（2024〜）</p>
-                <p className="text-muted-foreground">小中学生向けにMinecraft／Scratch／Robloxを用いた教育を担当。</p>
+                <p className="font-semibold">
+                  アントレキッズ和歌山校（2024〜）
+                </p>
+                <p className="text-muted-foreground">
+                  小中学生向けにMinecraft／Scratch／Robloxを用いた教育を担当。
+                </p>
               </div>
             </div>
           </section>
@@ -58,7 +66,9 @@ export default function AboutPage() {
               <Badge>PostgreSQL</Badge>
               <Badge>Oracle</Badge>
             </div>
-            <h3 className="text-sm font-medium mb-1">個人開発・学習・継続使用</h3>
+            <h3 className="text-sm font-medium mb-1">
+              個人開発・学習・継続使用
+            </h3>
             <div className="flex flex-wrap gap-2 mb-4">
               <Badge>React</Badge>
               <Badge>Next.js</Badge>
@@ -73,20 +83,18 @@ export default function AboutPage() {
             </div>
             <h3 className="text-sm font-medium mb-1">使用ツール・サービス</h3>
             <div className="flex flex-wrap gap-2 mb-4">
-            <Badge>GitHub</Badge>
-            <Badge>Docker Desktop</Badge>
-            <Badge>Figma</Badge>
-            <Badge>Canva</Badge>
-            <Badge>Docker Desktop</Badge>
-            <Badge>Vercel</Badge>
-            <Badge>Firebase Console</Badge>
-            <Badge>VS Code</Badge>
-            <Badge>Postman</Badge>
-            <Badge>Notion</Badge>
+              <Badge>GitHub</Badge>
+              <Badge>Docker Desktop</Badge>
+              <Badge>Figma</Badge>
+              <Badge>Canva</Badge>
+              <Badge>Docker Desktop</Badge>
+              <Badge>Vercel</Badge>
+              <Badge>Firebase Console</Badge>
+              <Badge>VS Code</Badge>
+              <Badge>Postman</Badge>
+              <Badge>Notion</Badge>
             </div>
           </section>
-
-
         </CardContent>
       </Card>
     </main>

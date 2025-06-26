@@ -5,7 +5,6 @@ slug: "css"
 date: "2025-06-26"
 ---
 
-
 # CSS
 
 - [公式サイト](https://developer.mozilla.org/ja/docs/Web/CSS)
@@ -59,15 +58,9 @@ CSS は以下の 3 つの方法で HTML に適用できます：
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>カスケードの例</title>
-    <link
-      rel="stylesheet"
-      href="styles.css"
-    />
+    <link rel="stylesheet" href="styles.css" />
     <!-- 外部スタイルシート -->
     <style>
       h1 {
@@ -101,15 +94,9 @@ h1 {
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>カスケードの例</title>
-    <link
-      rel="stylesheet"
-      href="styles.css"
-    />
+    <link rel="stylesheet" href="styles.css" />
     <!-- 外部スタイルシート -->
     <style>
       h1 {
@@ -197,7 +184,6 @@ CSS ボックスモデルは、ウェブページの要素のサイズとスペ�
 ### **基本セレクタ**
 
 - **タイプセレクタ（Type Selector）**
-
   - 要素名で指定。
   - 例: `p { color: red; }`
   - `p`タグのすべての要素に適用。
@@ -209,7 +195,6 @@ CSS ボックスモデルは、ウェブページの要素のサイズとスペ�
     ```
 
 - **クラスセレクタ（Class Selector）**: クラス名で指定。
-
   - 例: `.class-name { color: blue; }`
   - `.class-name`というクラスが指定された要素に適用。
 
@@ -220,7 +205,6 @@ CSS ボックスモデルは、ウェブページの要素のサイズとスペ�
     ```
 
 - **ID セレクタ（ID Selector）**: ID で指定。
-
   - 例: `#id-name { color: green; }`
   - `id-name`という ID が指定された要素に適用。
 
@@ -360,7 +344,7 @@ CSS ボックスモデルは、ウェブページの要素のサイズとスペ�
 
   ```css
   p::before {
-    content: 'Note: ';
+    content: "Note: ";
     font-weight: bold;
   }
   ```
@@ -369,7 +353,7 @@ CSS ボックスモデルは、ウェブページの要素のサイズとスペ�
 
   ```css
   p::after {
-    content: ';';
+    content: ";";
   }
   ```
 
@@ -444,7 +428,6 @@ CSS の「Cascading（カスケード）」は、複数のスタイルが競合�
 カスケードは、複数のスタイルルールが競合する場合に、どのルールが優先されるかを決定する仕組みです。以下の 3 つの原則によって、優先度が決まります。
 
 1. **ソース順序**：
-
    - 同じセレクタが複数回定義されている場合、後に定義されたものが優先されます。
    - 例：
 
@@ -458,7 +441,6 @@ CSS の「Cascading（カスケード）」は、複数のスタイルが競合�
      ```
 
 2. **特異性（Specificity）**：
-
    - セレクタの特異性によって優先度が決まります。特異性は、以下のルールに従って計算されます。
      - インラインスタイル（例：`<div style="color: red;">`）は、特異性が最も高いです。
      - ID セレクタ（例：`#id`）は、クラスセレクタ（例：`.class`）よりも高い特異性を持ちます。
@@ -476,11 +458,9 @@ CSS の「Cascading（カスケード）」は、複数のスタイルが競合�
        color: blue; /* 特異性: 0 */
      }
      ```
-
      - この場合、`#id`が最も高い特異性を持つため、ID が適用された要素は黄色になります。
 
 3. **重要度（!important）**：
-
    - 特異性に関係なく、`!important`を付けたスタイルが優先されます。使い方は以下の通りですが、通常は避けるべきです。
    - 例：
 
@@ -673,10 +653,7 @@ CSS アニメーションは主に 2 つの部分で構成されています：
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSSアニメーションの例</title>
     <style>
       @keyframes example {
@@ -734,7 +711,6 @@ CSS でセマンティックなアプローチを取ることは重要ですが�
   ```html
   <div class="red-text bold"></div>
   ```
-
   - 問題点: クラス名がスタイルに依存しているため、デザイン変更時にクラス名も変更が必要。
 
 - **セマンティックな例**（意味に基づく命名）
@@ -742,7 +718,6 @@ CSS でセマンティックなアプローチを取ることは重要ですが�
   ```html
   <div class="error-message"></div>
   ```
-
   - メリット: クラス名が「要素の役割」を表しているため、見た目が変わってもクラス名を変更する必要がない。
 
 ---

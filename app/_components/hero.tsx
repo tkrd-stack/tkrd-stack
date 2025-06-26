@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,8 +18,8 @@ export default function Hero() {
           y: 0,
           duration: 0.6,
           stagger: 0.15,
-          ease: 'power2.out',
-        }
+          ease: "power2.out",
+        },
       );
     }
   }, []);

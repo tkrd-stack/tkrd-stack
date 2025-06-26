@@ -8,12 +8,20 @@ export default function Header() {
           tkrd-stack
         </Link>
         <nav className="flex gap-4 text-sm">
-          <Link href="/notes" className="hover:underline">ノート</Link>
-          <Link href="/apps" className="hover:underline">アプリ</Link>
-          <Link href="/about" className="hover:underline">プロフィール</Link>
-          <Link href="/contact" className="hover:underline">お問い合わせ</Link>
+          <Link href="/notes" className="hover:underline">
+            ノート
+          </Link>
+          <Link href="/apps" className="hover:underline">
+            アプリ
+          </Link>
+          <Link href="/about" className="hover:underline">
+            プロフィール
+          </Link>
+          <Link href="/contact" className="hover:underline">
+            お問い合わせ
+          </Link>
         </nav>
       </div>
     </header>
   );
-} 
+}

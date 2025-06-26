@@ -3,11 +3,11 @@ import path from "path";
 import matter from "gray-matter";
 import { NoteMeta } from "./types";
 
-  /**
-   * Gets all notes from the content/notes directory.
-   *
-   * @returns A sorted array of note metadata.
-   */
+/**
+ * Gets all notes from the content/notes directory.
+ *
+ * @returns A sorted array of note metadata.
+ */
 export async function getAllNotes(): Promise<NoteMeta[]> {
   const notesDir = path.join(process.cwd(), "content/notes");
   const files = await fs.readdir(notesDir);
@@ -27,10 +27,10 @@ export async function getAllNotes(): Promise<NoteMeta[]> {
           date: data.date || null,
           tags: data.tags || [],
         };
-      })
+      }),
   );
 
   return notes.sort((a, b) =>
-    a.date && b.date ? b.date.localeCompare(a.date) : 0
+    a.date && b.date ? b.date.localeCompare(a.date) : 0,
   );
 }

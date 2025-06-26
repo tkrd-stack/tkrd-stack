@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useMemo, useRef, useEffect } from "react";
 import { NoteMeta } from "@/lib/types";
@@ -10,7 +10,7 @@ import Link from "next/link";
 import gsap from "gsap";
 
 export function NotesList({ notes }: { notes: NoteMeta[] }) {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   const filteredNotes = useMemo(() => {
@@ -18,7 +18,9 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
       const matchesSearch =
         note.title.toLowerCase().includes(search.toLowerCase()) ||
         note.description?.toLowerCase().includes(search.toLowerCase()) ||
-        (note.tags || []).some((tag) => tag.toLowerCase().includes(search.toLowerCase()));
+        (note.tags || []).some((tag) =>
+          tag.toLowerCase().includes(search.toLowerCase()),
+        );
       const matchesTag = selectedTag ? note.tags?.includes(selectedTag) : true;
       return matchesSearch && matchesTag;
     });
@@ -28,7 +30,6 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
 
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-
     if (containerRef.current) {
       gsap.fromTo(
         containerRef.current.children,
@@ -39,7 +40,7 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
           duration: 0.6,
           stagger: 0.1,
           ease: "power2.out",
-        }
+        },
       );
     }
   }, [filteredNotes]);
@@ -57,7 +58,7 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
 
       <div className="flex flex-wrap gap-2">
         {allTags.map((tag) => (
-          <Button 
+          <Button
             key={tag}
             variant={selectedTag === tag ? "default" : "outline"}
             onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
@@ -69,16 +70,24 @@ export function NotesList({ notes }: { notes: NoteMeta[] }) {
 
       <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredNotes.map((note) => (
-          <Card key={note.slug} className="bg-slate-50 border border-slate-200 hover:shadow-lg transition-all p-4">
+          <Card
+            key={note.slug}
+            className="bg-slate-50 border border-slate-200 hover:shadow-lg transition-all p-4"
+          >
             <CardHeader className="pb-4">
               <CardTitle className="text-xl">
-                <Link href={`/notes/${note.slug}`} className="hover:underline text-slate-800">
+                <Link
+                  href={`/notes/${note.slug}`}
+                  className="hover:underline text-slate-800"
+                >
                   {note.title}
                 </Link>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 pt-0">
-              <p className="text-slate-600 text-base leading-relaxed">{note.description}</p>
+              <p className="text-slate-600 text-base leading-relaxed">
+                {note.description}
+              </p>
               <div className="flex flex-wrap gap-2">
                 {(note.tags || []).map((tag) => (
                   <Badge key={tag} variant="secondary" className="text-sm">
