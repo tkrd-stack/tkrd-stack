@@ -206,32 +206,32 @@ export default function HeroSection() {
 
       {/* 装飾レイヤー - 中間 */}
       <div className="absolute inset-0 z-10">
-        <svg
+        {/* <svg
           ref={wave1Ref}
-          className="absolute left-0 w-[200%] h-full opacity-50"
-          viewBox="0 0 1400 320"
-          fill="#60a5fa"
-          xmlns="http://www.w3.org/2000/svg"
+          className='absolute left-0 w-[200%] h-full opacity-50'
+          viewBox='0 0 1600 320'
+          fill='#60a5fa'
+          xmlns='http://www.w3.org/2000/svg'
         >
           <path
-            fill="#06b6d4"
-            fillOpacity="0.08"
-            d="M0,224L30,229.3C60,235,120,245,180,245.3C240,245,300,235,360,213.3C420,192,480,160,540,160C600,160,660,192,720,208C780,224,840,224,900,213.3C960,203,1020,181,1080,165.3C1140,149,1200,139,1260,122.7C1320,107,1380,85,1410,74.7L1440,64V320H0Z"
+            fill='#06b6d4'
+            fillOpacity='0.08'
+            d='M0,224L30,229.3C60,235,120,245,180,245.3C240,245,300,235,360,213.3C420,192,480,160,540,160C600,160,660,192,720,208C780,224,840,224,900,213.3C960,203,1020,181,1080,165.3C1140,149,1200,139,1260,122.7C1320,107,1380,85,1410,74.7L1440,64V320H0Z'
           />
         </svg>
         <svg
           ref={wave2Ref}
-          className="absolute left-[100%] w-[200%] h-full opacity-50"
-          viewBox="0 0 1400 320"
-          fill="#06b6d4"
-          xmlns="http://www.w3.org/2000/svg"
+          className='absolute left-[100%] w-[200%] h-full opacity-50'
+          viewBox='0 0 1600 320'
+          fill='#06b6d4'
+          xmlns='http://www.w3.org/2000/svg'
         >
           <path
-            fill="#06b6d4"
-            fillOpacity="0.08"
-            d="M0,224L30,229.3C60,235,120,245,180,245.3C240,245,300,235,360,213.3C420,192,480,160,540,160C600,160,660,192,720,208C780,224,840,224,900,213.3C960,203,1020,181,1080,165.3C1140,149,1200,139,1260,122.7C1320,107,1380,85,1410,74.7L1440,64V320H0Z"
+            fill='#06b6d4'
+            fillOpacity='0.08'
+            d='M0,224L30,229.3C60,235,120,245,180,245.3C240,245,300,235,360,213.3C420,192,480,160,540,160C600,160,660,192,720,208C780,224,840,224,900,213.3C960,203,1020,181,1080,165.3C1140,149,1200,139,1260,122.7C1320,107,1380,85,1410,74.7L1440,64V320H0Z'
           />
-        </svg>
+        </svg> */}
 
         {/* パーティクル */}
         <div className="absolute inset-0 pointer-events-none">
@@ -304,24 +304,6 @@ export default function HeroSection() {
           <span className="relative z-10">ノートを見る</span>
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/10 to-teal-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
         </button>
-      </div>
-
-      {/* セクション間の滑らかな遷移 */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-slate-100/80 z-30 pointer-events-none"></div>
-
-      {/* 対角線カット効果 */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 z-20 pointer-events-none">
-        <svg
-          className="w-full h-full"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0,0 L1200,0 L1200,60 L0,120 Z"
-            fill="#f1f5f9"
-            opacity="0.7"
-          />
-        </svg>
       </div>
     </section>
   );

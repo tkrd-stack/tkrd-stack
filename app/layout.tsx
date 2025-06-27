@@ -5,6 +5,8 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { metadata } from "./head";
 import { Analytics } from "@vercel/analytics/next";
+import GradientCircle from "@/app/_components/gradient-circle";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -47,6 +49,7 @@ export default function RootLayout({
       >
         <Header />
         <Analytics />
+        <GradientCircle />
         {children}
         <Footer />
       </body>

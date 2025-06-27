@@ -6,15 +6,20 @@ import { gsap } from "gsap";
 function ShowcaseCard({
   title,
   description,
+  url,
 }: {
   title: string;
   description: string;
+  url?: string;
 }) {
   return (
     <Card className="bg-white/10 backdrop-blur-md">
       <CardContent className="p-6">
         <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
         <p className="text-gray-300">{description}</p>
+        <a href={url} className="text-blue-500 hover:underline">
+          View more
+        </a>
       </CardContent>
     </Card>
   );
@@ -61,15 +66,32 @@ export function AppShowcase() {
         </p>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 fade-in opacity-0 translate-y-8">
-        <ShowcaseCard
-          title="SkillFlow"
-          description="学習履歴に基づいて次の教材を提案するアプリ(制作中)"
-        />
-        <ShowcaseCard
-          title="Refeel"
-          description="感情を可視化して内面を振り返るアプリ(制作中)"
-        />
+      <div className="mt-8 flex flex-col gap-6 fade-in opacity-0 translate-y-8">
+        <h2 className="text-2xl font-bold text-white grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+          ウェブアプリ一覧
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ShowcaseCard
+            title="Studio"
+            description="studioで作ったWEBサイト"
+            url="https://azure372601.studio.site"
+          />
+        </div>
+        <h2 className="text-2xl font-bold text-white mb-4">
+          ネイティブアプリ一覧
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ShowcaseCard
+            title="SkillFlow"
+            description="学習履歴に基づいて次の教材を提案するアプリ(制作中)"
+            url="https://example.com/skillflow"
+          />
+          <ShowcaseCard
+            title="Refeel"
+            description="感情を可視化して内面を振り返るアプリ(制作中)"
+            url="https://example.com/refeel"
+          />
+        </div>
       </div>
     </section>
   );
